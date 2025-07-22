@@ -1,0 +1,133 @@
+:root {
+  --color-darkblue: darkblue;
+  --color-white: white;
+  --color-whitesmoke: whitesmoke;
+  --color-blue: blue;
+  --color-aliceblue: aliceblue;
+}
+
+html {
+  background: url(../img/cielo.jpg) no-repeat center center fixed;
+  background-size: cover;
+}
+
+body {
+  font-family: 'Nunito', 'Open Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  width: 80%;
+  margin: 5% auto;
+  border: 10px double var(--color-aliceblue);
+  color: var(--color-whitesmoke);
+  min-height: 100vh;
+  padding: 2em;
+  backdrop-filter: brightness(90%);
+}
+
+.contenedor {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  background: linear-gradient(to right, var(--color-blue), var(--color-white));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  text-shadow: 2px 2px 2px var(--color-darkblue);
+}
+
+p {
+  max-width: 600px;
+  margin: 5% auto 0 auto;
+  padding: 0 1em;
+  text-align: center;
+  font-size: medium;
+  font-weight: bold;
+}
+
+button {
+  background-color: var(--color-white);
+  color: var(--color-darkblue);
+  border: 5px solid var(--color-darkblue);
+  padding: 10px;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background-color: var(--color-darkblue);
+  color: var(--color-white);
+  cursor: pointer;
+}
+
+#nombreImagen {
+  font-weight: bold;
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+/* Estilos comunes adaptativos */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+/*Móviles - hasta 480px (portrait y landscape) */
+@media screen and (max-width: 480px) {
+  body {
+    width: 95%;
+    padding: 1em;
+    margin: 2% auto;
+  }
+
+  .contenedor {
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+  }
+
+  #nombreImagen {
+    font-size: 16px;
+    text-align: center;
+  }
+}
+
+/*Tablets - hasta 768px (portrait y landscape) */
+@media screen and (max-width: 768px) {
+  body {
+    width: 90%;
+    padding: 1.5em;
+    margin: 3% auto;
+  }
+
+  .contenedor {
+    flex-direction: column;
+    gap: 15px;
+    padding: 15px;
+  }
+
+  #nombreImagen {
+    font-size: 17px;
+  }
+}
+
+/*Orientación horizontal (landscape) específica para móviles/tablets */
+@media screen and (max-width: 1024px) and (orientation: landscape) {
+  body {
+    width: 85%;
+    margin: 3% auto;
+    padding: 1em;
+  }
+
+  .contenedor {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+  }
+}

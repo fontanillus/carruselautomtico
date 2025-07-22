@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carrusel con array objeto</title>
+  <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="shortcut icon" href="img/avion.avif" type="image/x-icon">
+
+</head>
+
+<body>
+  <h1>CARRUSEL DE IMÁGENES</h1>
+  <p><img src="" alt="foto" id="imagen"> </p>
+  <div class="contenedor">
+
+    <span id="nombreImagen">barcelona.jpg</span>
+
+  </div>
+  <p id="descripcionImagen"></p>
+
+  <script src="js/carrusell.js"></script>
+
+  <script>
+    const IMG = document.getElementById('imagen');
+    const NOMBRE = document.getElementById('nombreImagen');
+    const DESCRIPCION = document.getElementById('descripcionImagen');
+
+    IMG.style.border = '5px solid darkblue';
+    DESCRIPCION.style.color = 'black';
+    DESCRIPCION.style.textAlign = "center";
+
+    let posicion = 0;
+    mostrarImagen();
+
+    function avanzar() {
+      posicion = (posicion + 1) % imagenes.length;
+    }
+
+    function retroceder() {
+      posicion = (posicion - 1 + imagenes.length) % imagenes.length;
+      mostrarImagen();
+    }
+
+    function cambiarDiapositiva() {
+      avanzar();
+      mostrarImagen();
+    }
+
+    function mostrarImagen() {
+      IMG.src = RUTA + imagenes[posicion].archivo;
+      IMG.alt = imagenes[posicion].nombre;
+      IMG.title = imagenes[posicion].tooltip;
+
+      NOMBRE.innerHTML = `<span>${imagenes[posicion].nombre}</span>`;
+      DESCRIPCION.textContent = imagenes[posicion].descripcion;
+    }
+
+    let intervalo = setInterval(cambiarDiapositiva, 3000); // MINUTOS * 1000 * 60 1 minuto)
+  </script>
+
+</body>
+
+</html>
